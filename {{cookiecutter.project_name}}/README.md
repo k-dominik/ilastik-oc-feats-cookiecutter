@@ -54,9 +54,8 @@ Per default the feature _"example_global_feature"_, and "example_local_feature" 
 ## Writing your object feature plugin
 
 The `{{ cookiecutter.project_name }}` folder holds a template that you can use to implement your feature plugin.
-The file `{{ cookiecutter.module_name }}.py` and `{{ cookiecutter.module_name }}.yapsy-plugin` are the only files that you will need to edit.
+The file `{{ cookiecutter.module_name }}.py` ist the only file that you will need to edit.
 
-* `{{ cookiecutter.module_name }}.yapsy-plugin`: this holds the metadata that is used by the plugin manager that is used in ilastik `yapsy`.
 * `{{ cookiecutter.module_name }}.py`: The class `{{ cookiecutter.feature_class_name }}` is the template class that you need to edit in order to add your feature.
   These methods have to be implemented: `availableFeatures` and either (or both) `compute_global`, and/or `compute_local`.
   _`compute_global`_ assumes that the computation is done on the whole image at once.

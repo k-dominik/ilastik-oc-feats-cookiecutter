@@ -4,7 +4,7 @@ channels:
   - nodefaults
 
 dependencies:
-  - python 3.9.*
+  - python 3.11.*
   - pip
   - ilastik
   - typing_extensions

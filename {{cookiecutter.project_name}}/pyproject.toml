@@ -8,14 +8,19 @@ version = "{{ cookiecutter.initial_version }}"
 authors = [{name="{{ cookiecutter.author_name }}", email="{{ cookiecutter.author_email }}" }]
 description = "{{ cookiecutter.description }}"
 readme = "README.md"
-
+license = "MIT"
+license-files = [
+    "LICENSE",
+]
 # TODO: Add your dependencies here:
-dependencies = ["ilastik", "typing_extensions"]
-requires-python = ">=3.9"
+dependencies = ["ilastik-core", "typing_extensions"]
+requires-python = ">=3.11"
 
+[project.optional-dependencies]
+dev = ["pytest", "ilastik-core"]
 
-[project.entry-points."ilastik.objectfeatures"]
-{{ cookiecutter.project_name }} = "{{ cookiecutter.project_name }}"
+[tool.setuptools]
+packages = ["{{ cookiecutter.project_name }}"]
 
-[tool.setuptools.package-data]
-{{ cookiecutter.project_name }} = ["*.yapsy-plugin"]
+[project.entry-points."ilastik.objectfeature_plugins"]
+"{{ cookiecutter.project_name }}" = "{{ cookiecutter.project_name }}.{{ cookiecutter.module_name }}:{{ cookiecutter.feature_class_name }}"

@@ -1,43 +1,21 @@
-from typing import Dict, List
-
-from typing_extensions import NotRequired, TypedDict
+from typing import Dict
 
 import numpy
 import numpy.typing as npt
 import vigra
-from ilastik.plugins.types import ObjectFeaturesPlugin
-
-
-class FeatureDescription(TypedDict):
-    displaytext: str
-    detailtext: str
-    tooltip: str
-    advanced: bool
-    # for grouping features in plugins, adds another level in the feature
-    # selection tree.
-    # Only special value is "location", and should be given whenever
-    # absolute coordinates (image) are involved.
-    group: NotRequired[str]
-    # _currently_ if this parameter is given, features are computed via
-    # compute_local, very likely to be changed.
-    # margin value can be set in the ilastik UI
-    margin: NotRequired[int]
-    # features are assumed to be able to do 2D and 3D. If your feature
-    # cannot do one of them, you can mark those accordingly by setting
-    # one of those keys in the feature description
-    no_3D: NotRequired[bool]
-    no_2D: NotRequired[bool]
-    # if raw data is accessed for your feature, the most of the
-    channel_aware: NotRequired[bool]
-
+from ilastik.plugins.types import FeatureDescription, ObjectFeaturesPlugin, PluginInfo
 
 
 class {{ cookiecutter.feature_class_name }}(ObjectFeaturesPlugin):
     """Plugins of this class calculate object features.
 
     """
-
-    name = "{{ cookiecutter.project_name }}"
+    plugin_info = PluginInfo(
+        name="{{ cookiecutter.project_name }}",
+        author="{{ cookiecutter.author_name }}",
+        version="{{ cookiecutter.initial_version }}",
+        description="{{ cookiecutter.description }}"
+    )
 
     _feature_dict: Dict[str, FeatureDescription] = {
         "example_global_feature": {

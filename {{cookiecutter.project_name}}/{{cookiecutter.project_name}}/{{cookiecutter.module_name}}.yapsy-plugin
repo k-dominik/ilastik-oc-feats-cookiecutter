@@ -1,8 +1,0 @@
-[Core]
-Name = {{ cookiecutter.project_name }}
-Module = {{ cookiecutter.module_name }}
-
-[Documentation]
-Author = {{ cookiecutter.author_name }}
-Version = {{ cookiecutter.initial_version }}
-Description = {{ cookiecutter.description }}
